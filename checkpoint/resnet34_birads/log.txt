@@ -1,0 +1,117 @@
+
+EPOCH1
+Test set: Avg Test CE Loss: 0.6171; Avg Test Metric Loss: 0.0000; Test accuracy: 73.68%
+Saving best model!
+
+EPOCH2
+Test set: Avg Test CE Loss: 0.4972; Avg Test Metric Loss: 0.0000; Test accuracy: 80.45%
+Saving best model!
+
+EPOCH3
+Test set: Avg Test CE Loss: 0.4813; Avg Test Metric Loss: 0.0000; Test accuracy: 81.62%
+Saving best model!
+
+EPOCH4
+Test set: Avg Test CE Loss: 0.4671; Avg Test Metric Loss: 0.0000; Test accuracy: 81.68%
+Saving best model!
+
+EPOCH5
+Test set: Avg Test CE Loss: 0.4498; Avg Test Metric Loss: 0.0000; Test accuracy: 82.44%
+Saving best model!
+
+EPOCH6
+Test set: Avg Test CE Loss: 0.4676; Avg Test Metric Loss: 0.0000; Test accuracy: 81.62%
+EPOCH7
+Test set: Avg Test CE Loss: 0.4620; Avg Test Metric Loss: 0.0000; Test accuracy: 82.06%
+EPOCH8
+Test set: Avg Test CE Loss: 0.4531; Avg Test Metric Loss: 0.0000; Test accuracy: 82.50%
+Saving best model!
+
+EPOCH9
+Test set: Avg Test CE Loss: 0.4880; Avg Test Metric Loss: 0.0000; Test accuracy: 80.31%
+EPOCH10
+Test set: Avg Test CE Loss: 0.4567; Avg Test Metric Loss: 0.0000; Test accuracy: 82.30%
+EPOCH11
+Test set: Avg Test CE Loss: 0.4632; Avg Test Metric Loss: 0.0000; Test accuracy: 81.51%
+EPOCH12
+Test set: Avg Test CE Loss: 0.5011; Avg Test Metric Loss: 0.0000; Test accuracy: 81.73%
+EPOCH13
+Test set: Avg Test CE Loss: 0.4486; Avg Test Metric Loss: 0.0000; Test accuracy: 82.74%
+Saving best model!
+
+EPOCH14
+Test set: Avg Test CE Loss: 0.4581; Avg Test Metric Loss: 0.0000; Test accuracy: 81.38%
+EPOCH15
+Test set: Avg Test CE Loss: 0.4773; Avg Test Metric Loss: 0.0000; Test accuracy: 83.32%
+Saving best model!
+
+EPOCH16
+Test set: Avg Test CE Loss: 0.4528; Avg Test Metric Loss: 0.0000; Test accuracy: 83.01%
+EPOCH17
+Test set: Avg Test CE Loss: 0.4568; Avg Test Metric Loss: 0.0000; Test accuracy: 82.63%
+EPOCH18
+Test set: Avg Test CE Loss: 0.4568; Avg Test Metric Loss: 0.0000; Test accuracy: 82.66%
+EPOCH19
+Test set: Avg Test CE Loss: 0.4676; Avg Test Metric Loss: 0.0000; Test accuracy: 82.61%
+EPOCH20
+Test set: Avg Test CE Loss: 0.4758; Avg Test Metric Loss: 0.0000; Test accuracy: 80.75%
+EPOCH21
+Test set: Avg Test CE Loss: 0.4673; Avg Test Metric Loss: 0.0000; Test accuracy: 82.17%
+EPOCH22
+Test set: Avg Test CE Loss: 0.4675; Avg Test Metric Loss: 0.0000; Test accuracy: 82.17%
+EPOCH23
+Test set: Avg Test CE Loss: 0.4752; Avg Test Metric Loss: 0.0000; Test accuracy: 82.61%
+EPOCH24
+Test set: Avg Test CE Loss: 0.4808; Avg Test Metric Loss: 0.0000; Test accuracy: 82.41%
+EPOCH25
+Test set: Avg Test CE Loss: 0.4783; Avg Test Metric Loss: 0.0000; Test accuracy: 82.47%
+EPOCH26
+Test set: Avg Test CE Loss: 0.4837; Avg Test Metric Loss: 0.0000; Test accuracy: 82.33%
+EPOCH27
+Test set: Avg Test CE Loss: 0.4799; Avg Test Metric Loss: 0.0000; Test accuracy: 81.98%
+EPOCH28
+Test set: Avg Test CE Loss: 0.4864; Avg Test Metric Loss: 0.0000; Test accuracy: 82.66%
+EPOCH29
+Test set: Avg Test CE Loss: 0.4892; Avg Test Metric Loss: 0.0000; Test accuracy: 81.68%
+EPOCH30
+Test set: Avg Test CE Loss: 0.4901; Avg Test Metric Loss: 0.0000; Test accuracy: 82.11%
+EPOCH31
+Test set: Avg Test CE Loss: 0.4974; Avg Test Metric Loss: 0.0000; Test accuracy: 82.77%
+EPOCH32
+Test set: Avg Test CE Loss: 0.4922; Avg Test Metric Loss: 0.0000; Test accuracy: 81.81%
+EPOCH33
+Test set: Avg Test CE Loss: 0.4913; Avg Test Metric Loss: 0.0000; Test accuracy: 82.52%
+EPOCH34
+Test set: Avg Test CE Loss: 0.4971; Avg Test Metric Loss: 0.0000; Test accuracy: 82.52%
+EPOCH35
+Test set: Avg Test CE Loss: 0.4921; Avg Test Metric Loss: 0.0000; Test accuracy: 81.76%
+EPOCH36
+Test set: Avg Test CE Loss: 0.4941; Avg Test Metric Loss: 0.0000; Test accuracy: 81.46%
+EPOCH37
+Test set: Avg Test CE Loss: 0.4953; Avg Test Metric Loss: 0.0000; Test accuracy: 82.17%
+EPOCH38
+Test set: Avg Test CE Loss: 0.4958; Avg Test Metric Loss: 0.0000; Test accuracy: 81.95%
+EPOCH39
+Test set: Avg Test CE Loss: 0.4976; Avg Test Metric Loss: 0.0000; Test accuracy: 82.41%
+EPOCH40
+Test set: Avg Test CE Loss: 0.4978; Avg Test Metric Loss: 0.0000; Test accuracy: 82.14%
+EPOCH41
+Test set: Avg Test CE Loss: 0.4937; Avg Test Metric Loss: 0.0000; Test accuracy: 82.22%
+EPOCH42
+Test set: Avg Test CE Loss: 0.4989; Avg Test Metric Loss: 0.0000; Test accuracy: 82.14%
+EPOCH43
+Test set: Avg Test CE Loss: 0.5003; Avg Test Metric Loss: 0.0000; Test accuracy: 82.22%
+EPOCH44
+Test set: Avg Test CE Loss: 0.4997; Avg Test Metric Loss: 0.0000; Test accuracy: 82.50%
+EPOCH45
+Test set: Avg Test CE Loss: 0.5020; Avg Test Metric Loss: 0.0000; Test accuracy: 82.30%
+EPOCH46
+Test set: Avg Test CE Loss: 0.5012; Avg Test Metric Loss: 0.0000; Test accuracy: 82.36%
+EPOCH47
+Test set: Avg Test CE Loss: 0.4971; Avg Test Metric Loss: 0.0000; Test accuracy: 82.09%
+EPOCH48
+Test set: Avg Test CE Loss: 0.5005; Avg Test Metric Loss: 0.0000; Test accuracy: 82.30%
+EPOCH49
+Test set: Avg Test CE Loss: 0.4998; Avg Test Metric Loss: 0.0000; Test accuracy: 82.09%
+EPOCH50
+Test set: Avg Test CE Loss: 0.4993; Avg Test Metric Loss: 0.0000; Test accuracy: 81.65%
