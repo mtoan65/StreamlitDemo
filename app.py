@@ -8,12 +8,16 @@ from PIL import Image, ImageOps
 from io import BytesIO
 import imageio
 from torchvision import transforms
+from models.Resnet18 import resnet18
+from models.Resnet34 import resnet34
 
 model_path = 'checkpoint/'
 if torch.cuda.is_available():
     map_location=torch.device('cuda')
+    device = 'cuda'
 else:
     map_location=torch.device('cpu')
+    device = 'cpu'
 st.set_option('deprecation.showfileUploaderEncoding', False)
 @st.cache(allow_output_mutation=True)
 
@@ -21,26 +25,43 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Load model
 def load_model(model_path, map_location):
-    model = torch.load(model_path, map_location=map_location)
+    if "resnet18" in model_path:
+        model = resnet18(False,'', device)
+    else:
+        model = resnet34(False,'', device)
+    checkpoint = torch.load(model_path, map_location=map_location)['model_state_dict']
+    print(checkpoint.keys())
+    model.load_state_dict(checkpoint)
+    # model = torch.load(model_path, map_location=map_location)
+    # model.eval()
     return model
 
 # Predict
 def predict_class(model, image):
-    image = image.to('cuda')
-    logits = model(image)
-    pred = logits.max(1, keepdim=True)[1]
+    # image = torch.from_numpy(image).to('cuda')
+    image = image.to(device)
+    logit = model(image)
+    pred = logit.max(1, keepdim=True)[1]
     return pred
 
 # Preprocessing
-def preprocessing_uploader(image, input_size=512):
-    img = imageio.imread(image)
-    if len(img.shape) == 2:
-        img = np.stack([img] * 3, 2)
-    img = Image.fromarray(img, mode='RGB')
-    img = transforms.Resize(input_size + 16)(img)  # old: 16
+def preprocessing_uploader(image_file, input_size=512):
+    bytes_data = image_file.getvalue()
+    inputShape = (512, 512)
+    img = Image.open(BytesIO(bytes_data))
+    img = img.convert("RGB")
+    img = img.resize(inputShape)
+    # img = imageio.imread(BytesIO(bytes_data))
+    # print(type(img))
+    # if len(img.shape) == 2:
+    #     img = np.stack([img] * 3, 2)
+    # img = Image.fromarray(img, mode='RGB')
+    T = transforms.Resize(input_size + 16)
+    img = T(img)  # old: 16
     img = transforms.CenterCrop(input_size)(img)
     img = transforms.ToTensor()(img)
     img = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(img)
+    img = torch.unsqueeze(img, dim=0)
     return img
 
 app_mode = st.sidebar.selectbox('Chọn trang',['Thông tin chung','Thống kê về dữ liệu huấn luyện','Ứng dụng chẩn đoán']) #two pages
@@ -139,28 +160,30 @@ elif app_mode=='Ứng dụng chẩn đoán':
         slot.text('Hệ thống đang thực thi chẩn đoán....')
         
         # Preprocessing & Predict
-        pred_resnet18_density = preprocessing_uploader(file, resnet18_density)
-        pred_resnet18_birads = preprocessing_uploader(file, resnet18_birads)
-        pred_resnet34_density = preprocessing_uploader(file, resnet34_density)
-        pred_resnet34_birads = preprocessing_uploader(file, resnet34_birads)
+        image = preprocessing_uploader(file)
+        pred_resnet18_density = predict_class(resnet18_density, image) 
+        pred_resnet18_birads = predict_class(resnet18_birads, image) 
+        pred_resnet34_density = predict_class(resnet34_density, image) 
+        pred_resnet34_birads = predict_class(resnet34_birads, image) 
 
         density_class = [0,1,2,3,4,5]
         birads_class = [0,1,2,3,4,5]
 
-        result_resnet18_density = density_class[np.argmax(pred_resnet18_density)]
-        result_resnet18_birads = birads_class[np.argmax(pred_resnet18_birads)]
-        result_resnet34_density = density_class[np.argmax(pred_resnet34_density)]
-        result_resnet34_birads = birads_class[np.argmax(pred_resnet34_birads)]
+        # result_resnet18_density = density_class[np.argmax(pred_resnet18_density)]
+        # result_resnet18_birads = birads_class[np.argmax(pred_resnet18_birads)]
+        # result_resnet34_density = density_class[np.argmax(pred_resnet34_density)]
+        # result_resnet34_birads = birads_class[np.argmax(pred_resnet34_birads)]
+
 
         # Display input image
         test_image = Image.open(file)
         st.image(test_image, caption="Ảnh đầu vào", width = 400)
 
         # Display result
-        st.write('- **Class density resnet18**: *{}%*'.format(round(result_resnet18_density[0,0] *100,2)))
-        st.write('- **Class birads resnet18**: *{}%*'.format(round(result_resnet18_birads[0,0] *100,2)))
-        st.write('- **Class density resnet34**: *{}%*'.format(round(result_resnet34_density[0,0] *100,2)))
-        st.write('- **Class birads resnet34**: *{}%*'.format(round(result_resnet34_birads[0,0] *100,2)))
+        st.write('- **Class density resnet18**: *{}%*'.format(pred_resnet18_density))
+        st.write('- **Class birads resnet18**: *{}%*'.format(pred_resnet18_birads))
+        st.write('- **Class density resnet34**: *{}%*'.format(pred_resnet34_density))
+        st.write('- **Class birads resnet34**: *{}%*'.format(pred_resnet34_birads))
         
 #         if str(result) == 'covid':
 #             statement = str('Chẩn đoán của mô hình học máy: **Bệnh nhân mắc Covid-19.**')

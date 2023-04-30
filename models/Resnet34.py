@@ -214,8 +214,8 @@ class ResNet(nn.Module):
         return x
     
 
-def resnet34(pretrained, pth_url):
-    model = ResNet(img_channels=3, num_layers=34, block=BasicBlock, num_classes=1000)
+def resnet34(pretrained, pth_url, device):
+    model = ResNet(img_channels=3, num_layers=34, block=BasicBlock, num_classes=1000).to(device)
     if pretrained:
         pretrained_dict = torch.hub.load_state_dict_from_url(pth_url)
         del pretrained_dict['fc.weight']
